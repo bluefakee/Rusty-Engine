@@ -1,10 +1,10 @@
 pub mod debug;
 
 pub fn startup() {
-    if !debug::try_initialize_logger() {
-        debug::error!("Failed initializing the Logger");
+    if let Err(err) = debug::try_initialize_logger() {
+        debug::error!("Loggerinitialization failed ({}:?)", err);
         return;
     }
 
-    debug::info!("Initialized Logger successfully");
+    debug::info!("Logger initialized");
 }
