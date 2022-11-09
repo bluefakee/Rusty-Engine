@@ -1,3 +1,5 @@
+pub use log::{trace, debug, info, warn, error};
+
 pub(crate) fn try_initialize_logger() -> bool {
     fern::Dispatch::new()
         .format(|out, message, record| {

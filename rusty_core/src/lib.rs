@@ -1,5 +1,10 @@
 pub mod debug;
 
 pub fn startup() {
-    debug::try_initialize_logger();
+    if !debug::try_initialize_logger() {
+        debug::error!("Failed initializing the Logger");
+        return;
+    }
+
+    debug::info!("Initialized Logger successfully");
 }
