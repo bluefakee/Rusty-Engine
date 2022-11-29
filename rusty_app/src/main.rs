@@ -1,5 +1,7 @@
 extern crate rusty_core;
 
 fn main() {
-    rusty_core::startup();
+    if let Err(e) = rusty_core::start() {
+        print!("{:?}", e);
+    }
 }
