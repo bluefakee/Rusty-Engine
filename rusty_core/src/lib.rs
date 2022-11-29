@@ -45,6 +45,7 @@ pub fn start() -> Result<(), Box<dyn Error>> {
         frame.clear_color(0.0, 0.0, 0.0, 1.0);
         if let Err(e) = frame.finish() {
             debug::error!("Error happened trying to draw frame: {:?}", e);
+            control_flow.set_exit_with_code(1);
             return;
         }
     });
